@@ -17,8 +17,15 @@ alias j="jobs"
 # Hub
 alias git="hub"
 alias g="hub"
-alias gpom="hub pull origin master"
+alias gc="git commit -a"
+alias gps="hub push"
+alias gpl="hub pull"
+alias gpsom="hub push origin master"
+alias gplom="hub pull origin master"
 alias gs="hub status"
+alias go="hub checkout"
+alias bg="hub branch"
+
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
