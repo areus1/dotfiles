@@ -23,6 +23,7 @@ alias gpl="hub pull"
 alias gs="hub status"
 alias go="hub checkout"
 alias bg="hub branch"
+alias gb="hub browse"
 
 
 # Detect which `ls` flavor is in use
