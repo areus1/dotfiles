@@ -1,10 +1,10 @@
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH";
+export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH";
 . `brew --prefix`/etc/profile.d/z.sh
 
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
+#Load the shell dotfiles, and then some:
+#* ~/.path can be used to extend `$PATH`.
+#* ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
@@ -43,14 +43,18 @@ fi;
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
-# Add tab completion for `defaults read|write NSGlobalDomain`
-# You could just use `-g` instead, but I like being explicit
+# # Add tab completion for `defaults read|write NSGlobalDomain`
+# # You could just use `-g` instead, but I like being explicit
 complete -W "NSGlobalDomain" defaults;
 
-# Add `killall` tab completion for common apps
+# # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
-function _update_ps1() {
-export PS1="$(~/.config/powerline-shell.py $? 2> /dev/null)"
-}
 
+# Powerline Shell
+function _update_ps1() {
+export PS1="$(~/.powerline-shell/powerline-shell.py $? 2> /dev/null)"
+}
 export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+
+export NVM_DIR="/usr/local/opt/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvmexport PATH="/usr/local/sbin:$PATH"

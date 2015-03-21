@@ -19,7 +19,10 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'chriskempson/base16-vim'
 Plugin 'raimondi/delimitmate'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -144,6 +147,8 @@ endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
+" Map escape to clear the search highlights
+nnoremap <esc> :noh<return><esc>
 
 " Automatic commands
 if has("autocmd")
@@ -154,3 +159,7 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
+" Open Nerdtree if no file specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
