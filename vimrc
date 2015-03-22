@@ -175,7 +175,24 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 :nmap <Leader>s :source $MYVIMRC<CR>
 :nmap <Leader>v :e $MYVIMRC<CR>
 
+" Make it easier to open bash dotfiles directory
+:nmap <Leader>dot :e ~/.dotfiles<CR>
+
+" User Tabularize to align equal signs
+inoremap <silent> = =<Esc>:call <SID>ealign()<CR>a
+function! s:ealign()
+  let p = '^.*=\s.*$'
+  if exists(':Tabularize') && getline('.') =~# '^.*=' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^=]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*=\s*\zs.*'))
+    Tabularize/=/l1
+    normal! 0
+    call search(repeat('[^=]*=',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
+"
 :" fugitive git bindings
 nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
