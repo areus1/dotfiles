@@ -15,18 +15,18 @@ Plugin 'gmarik/Vundle.vim'
 " All of your Plugins must be added before the following line
 
 Plugin 'bling/vim-airline'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
 Plugin 'chriskempson/base16-vim'
 Plugin 'raimondi/delimitmate'
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-dispatch'
+Plugin 'digitaltoad/vim-jade'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -39,24 +39,23 @@ filetype plugin indent on    " required
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-let b:javascript_fold=1
-
-let g:javascript_conceal_function   = "ƒ"
-let g:javascript_conceal_null       = "ø"
-let g:javascript_conceal_this       = "@"
-let g:javascript_conceal_return     = "⇚"
-let g:javascript_conceal_undefined  = "¿"
-let g:javascript_conceal_NaN        = "ℕ"
-let g:javascript_conceal_prototype  = "¶"
-let g:javascript_conceal_static     = "•"
-let g:javascript_conceal_super      = "Ω"
 
 set background=dark
 colorscheme base16-tomorrow
 let g:airline_powerline_fonts = 1
 set guifont=Sauce\ Code\ Powerline:h14
+
+let b:javascript_folding = 0
+
+let g:javascript_conceal_function   = "ƒ"
+" let g:javascript_conceal_null       = "ø"
+" let g:javascript_conceal_this       = "@"
+" let g:javascript_conceal_return     = "⇚"
+" let g:javascript_conceal_undefined  = "¿"
+" let g:javascript_conceal_NaN        = "ℕ"
+" let g:javascript_conceal_prototype  = "¶"
+" let g:javascript_conceal_static     = "•"
+" let g:javascript_conceal_super      = "Ω"
 
 " Make Vim more useful
 set nocompatible
