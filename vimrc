@@ -23,10 +23,13 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'wavded/vim-stylus'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-dispatch'
-Plugin 'digitaltoad/vim-jade'
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -39,6 +42,7 @@ filetype plugin indent on    " required
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 set background=dark
 colorscheme base16-tomorrow
@@ -190,9 +194,7 @@ function! s:ealign()
   endif
 endfunction
 
-" opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
-"
-:" fugitive git bindings
+" fugitive git bindings
 nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>gc :Gcommit -v -q<CR>
