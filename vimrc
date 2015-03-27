@@ -15,10 +15,12 @@ Plugin 'gmarik/Vundle.vim'
 " All of your Plugins must be added before the following line
 
 Plugin 'bling/vim-airline'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'chriskempson/base16-vim'
 Plugin 'raimondi/delimitmate'
 Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+"Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'godlygeek/tabular'
@@ -29,6 +31,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-dispatch'
+Plugin 'scrooloose/syntastic'
+Plugin 'mattn/emmet-vim'
 
 
 call vundle#end()            " required
@@ -181,19 +185,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " Make it easier to open bash dotfiles directory
 :nmap <Leader>dot :e ~/.dotfiles<CR>
 
-" User Tabularize to align equal signs
-inoremap <silent> = =<Esc>:call <SID>ealign()<CR>a
-function! s:ealign()
-  let p = '^.*=\s.*$'
-  if exists(':Tabularize') && getline('.') =~# '^.*=' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^=]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*=\s*\zs.*'))
-    Tabularize/=/l1
-    normal! 0
-    call search(repeat('[^=]*=',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-
 " fugitive git bindings
 nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
@@ -210,3 +201,25 @@ nnoremap <space>gb :Git branch<Space>
 nnoremap <space>go :Git checkout<Space>
 nnoremap <space>gps :Dispatch! git push<CR>
 nnoremap <space>gpl :Dispatch! git pull<CR>
+
+" Syntax Checking with Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let syntastic_mode_map = { 'passive_filetypes': ['html'] }
+
+let g:syntastic_html_tidy_ignore_errors = [
+	\  '> proprietary attribute "',
+	\  '> attribute "lang" lacks value',
+	\  '> attribute "href" lacks value',
+	\  'trimming empty <'
+	\ ]
+
+let g:syntastic_html_tidy_blocklevel_tags = [
+  \ 'ng-include',
+  \ 'ng-form'
+  \ ]
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list            = 1
+let g:syntastic_check_on_open            = 1
+let g:syntastic_check_on_wq              = 0
