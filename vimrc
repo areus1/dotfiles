@@ -15,7 +15,8 @@ Plugin 'gmarik/Vundle.vim'
 " All of your Plugins must be added before the following line
 
 Plugin 'bling/vim-airline'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'SirVer/ultisnips'
+Plugin 'SeeThruHead/vim-snippets'
 Plugin 'chriskempson/base16-vim'
 Plugin 'raimondi/delimitmate'
 Plugin 'othree/javascript-libraries-syntax.vim'
@@ -64,6 +65,10 @@ let g:javascript_conceal_function   = "ƒ"
 " let g:javascript_conceal_prototype  = "¶"
 " let g:javascript_conceal_static     = "•"
 " let g:javascript_conceal_super      = "Ω"
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Make Vim more useful
 set nocompatible
