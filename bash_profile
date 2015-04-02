@@ -53,10 +53,5 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 export NVM_DIR="/usr/local/opt/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvmexport PATH="/usr/local/sbin:$PATH"
 
-function _update_ps1() {
-   export PS1="$(~/.powerline-shell/powerline-shell.py $? 2> /dev/null)\n"
-}
-
-export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 
 source /Users/STH/.iterm2_shell_integration.bash
