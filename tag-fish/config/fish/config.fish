@@ -17,3 +17,8 @@ set fish_plugins theme git-flow z brew osx sublime vundle node export cask balia
 
 # Load up the wonderful nvm fish wrapper script
 source $HOME/.config/fish/nvm-wrapper/nvm.fish
+
+# Change fish prompt the powerline shell
+function  fish_prompt
+  ~/.powerline-shell.py $status --shell bare ^/dev/null
+end
