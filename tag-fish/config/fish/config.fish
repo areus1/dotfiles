@@ -35,6 +35,7 @@ balias gbr 'hub browse'
 balias gpl 'hub pull'
 balias gps 'hub push'
 balias reload '. ~/.config/fish/config.fish'
+balias j 'jobs'
 
 function update
   sudo softwareupdate -i -a;
