@@ -22,3 +22,15 @@ source $HOME/.config/fish/nvm-wrapper/nvm.fish
 function  fish_prompt
   ~/.powerline-shell.py $status --shell bare ^/dev/null
 end
+
+# Aliases
+balias git 'hub'
+balias g 'hub'
+balias p 'cd ~/projects'
+balias gc 'git commit -a'
+balias gs 'hub status'
+balias gco 'hub checkout'
+balias gb 'hub branch'
+balias gbr 'hub browse'
+balias reload '. ~/.config/fish/config.fish'
+
