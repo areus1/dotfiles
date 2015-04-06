@@ -32,5 +32,7 @@ balias gs 'hub status'
 balias gco 'hub checkout'
 balias gb 'hub branch'
 balias gbr 'hub browse'
+balias gpl 'hub pull'
+balias gps 'hub push'
 balias reload '. ~/.config/fish/config.fish'
 
