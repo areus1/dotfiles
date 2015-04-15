@@ -1,0 +1,1 @@
+/Users/STH/.dotfiles/tag-fish/config/fish//fish/functions/gcall.fish
