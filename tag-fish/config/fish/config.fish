@@ -16,7 +16,7 @@ set fish_plugins theme git-flow z brew osx sublime vundle node export cask balia
 . $fish_path/oh-my-fish.fish
 
 # Load up the wonderful nvm fish wrapper script
-source $HOME/.config/fish/nvm-wrapper/nvm.fish
+source $HOME/.config/fish/utils/nvm.fish
 
 # Change fish prompt the powerline shell
 function  fish_prompt
@@ -43,3 +43,4 @@ function emptytrash
   sudo rm -rfv ~/.Trash;
   sudo rm -rfv /private/var/log/asl/*.asl
 end
+

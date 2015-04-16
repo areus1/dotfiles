@@ -1,1 +1,2 @@
 EXCLUDES="weechat/logs/* weechat/*.log"
+SYMLINK_DIRS="functions utils"
