@@ -37,16 +37,6 @@ balias gps 'hub push'
 balias reload '. ~/.config/fish/config.fish'
 balias j 'jobs'
 
-function update
-  sudo softwareupdate -i -a;
-  brew update;
-  brew upgrade;
-  brew cleanup;
-  npm install npm -g;
-  npm update -g;
-  sudo gem update --system;
-  sudo gem update;
-end
 
 function emptytrash
   sudo rm -rfv /Volumes/*/.Trashes;
